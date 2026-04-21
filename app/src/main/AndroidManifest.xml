@@ -35,6 +35,12 @@
         <activity android:name=".MySecondActivity">
 
         </activity>
+
+        <activity
+            android:label="Activity1"
+            android:name=".Activity1">
+
+        </activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MySecondActivity extends AppCompatActivity {
+    public static int RETURNFROM_MYSECONDACTIVITY = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,26 @@ public class MySecondActivity extends AppCompatActivity {
                 intent.setClass(MySecondActivity.this,
                         MyFirstActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Intent intent = getIntent();
+        String data = intent.getStringExtra("data");
+
+        final EditText editText = findViewById(R.id.editText);
+        editText.setText(data);
+
+        Button btnFinish = findViewById(R.id.btnFinish);
+        btnFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                String s = editText.getText().toString();
+
+                i.putExtra("data", s);
+
+                setResult(RETURNFROM_MYSECONDACTIVITY, i);
+                finish();
             }
         });
     }

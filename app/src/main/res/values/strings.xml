@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">My First App</string>
     <string name="hello">Hello World</string>
+    <string name="finish">FINISH</string>
+    <string name="hintName">Enter your name</string>
+    <string name="backFirstActivity">Nhấn vào tôi để quay lại First activity</string>
 </resources>
